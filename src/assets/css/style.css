@@ -18131,8 +18131,6 @@ button.scroltop {
   bottom: -220px;
 }
 .banner-two .dz-media {
-  -webkit-mask-image: url(../images/main-slider/slider2/pic2.png);
-  mask-image: url(../images/main-slider/slider2/pic2.png);
   -webkit-mask-position: center center;
   mask-position: center center;
   -webkit-mask-repeat: no-repeat;
