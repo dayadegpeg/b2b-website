@@ -1,26 +1,8 @@
-var Samar = (function () {
+var Script = (function () {
   /* Search Bar ============ */
   siteUrl = "";
 
   var screenWidth = $(window).width();
-
-  var homeSearch = function () {
-    "use strict";
-    /* top search in header on click function */
-    var quikSearch = jQuery("#quik-search-btn");
-    var quikSearchRemove = jQuery("#quik-search-remove");
-
-    quikSearch.on("click", function () {
-      jQuery(".dz-quik-search").fadeIn(500);
-      jQuery(".dz-quik-search").addClass("On");
-    });
-
-    quikSearchRemove.on("click", function () {
-      jQuery(".dz-quik-search").fadeOut(500);
-      jQuery(".dz-quik-search").removeClass("On");
-    });
-    /* top search in header on click function End*/
-  };
 
   /* One Page Layout ============ */
   var onePageLayout = function () {
@@ -134,58 +116,6 @@ var Samar = (function () {
     });
   };
 
-  /* Magnific Popup ============ */
-  var MagnificPopup = function () {
-    "use strict";
-    /* magnificPopup function */
-    jQuery(".mfp-gallery").magnificPopup({
-      delegate: ".mfp-link",
-      type: "image",
-      tLoading: "Loading image #%curr%...",
-      mainClass: "mfp-img-mobile",
-      gallery: {
-        enabled: true,
-        navigateByImgClick: true,
-        preload: [0, 1], // Will preload 0 - before current, and 1 after the current image
-      },
-      image: {
-        tError: '<a href="%url%">The image #%curr%</a> could not be loaded.',
-        titleSrc: function (item) {
-          return item.el.attr("title") + "<small></small>";
-        },
-      },
-    });
-    /* magnificPopup function end */
-
-    /* magnificPopup for paly video function */
-    jQuery(".video").magnificPopup({
-      type: "iframe",
-      iframe: {
-        markup:
-          '<div class="mfp-iframe-scaler">' +
-          '<div class="mfp-close"></div>' +
-          '<iframe class="mfp-iframe" frameborder="0" allowfullscreen></iframe>' +
-          '<div class="mfp-title">Some caption</div>' +
-          "</div>",
-      },
-      callbacks: {
-        markupParse: function (template, values, item) {
-          values.title = item.el.attr("title");
-        },
-      },
-    });
-    /* magnificPopup for paly video function end*/
-    $(".popup-youtube, .popup-vimeo, .popup-gmaps").magnificPopup({
-      disableOn: 700,
-      type: "iframe",
-      mainClass: "mfp-fade",
-      removalDelay: 160,
-      preloader: false,
-
-      fixedContentPos: false,
-    });
-  };
-
   /* Scroll To Top ============ */
   var scrollTop = function () {
     "use strict";
@@ -210,24 +140,6 @@ var Samar = (function () {
       }
     });
     /* page scroll top on click function end*/
-  };
-
-  /* handle Accordian ============ */
-  var handleAccordian = function () {
-    /* accodin open close icon change */
-    jQuery("#accordion").on("hidden.bs.collapse", function (e) {
-      jQuery(e.target)
-        .prev(".panel-heading")
-        .find("i.indicator")
-        .toggleClass("glyphicon-minus glyphicon-plus");
-    });
-    jQuery("#accordion").on("shown.bs.collapse", function (e) {
-      jQuery(e.target)
-        .prev(".panel-heading")
-        .find("i.indicator")
-        .toggleClass("glyphicon-minus glyphicon-plus");
-    });
-    /* accodin open close icon change end */
   };
 
   /* Equal Height ============ */
@@ -276,36 +188,6 @@ var Samar = (function () {
     jQuery(".site-footer").css("height", footerHeight);
   };
 
-  /* File Input ============ */
-  var fileInput = function () {
-    "use strict";
-    /* Input type file jQuery */
-    jQuery(document).on("change", ".btn-file :file", function () {
-      var input = jQuery(this);
-      var numFiles = input.get(0).files ? input.get(0).files.length : 1;
-      var label = input
-        .val()
-        .replace(/\\/g, "https://samar.dexignzone.com/")
-        .replace(/.*\//, "");
-      input.trigger("fileselect", [numFiles, label]);
-    });
-
-    jQuery(".btn-file :file").on(
-      "fileselect",
-      function (event, numFiles, label) {
-        input = jQuery(this).parents(".input-group").find(":text");
-        var log = numFiles > 10 ? numFiles + " files selected" : label;
-
-        if (input.length) {
-          input.val(log);
-        } else {
-          if (log) alert(log);
-        }
-      }
-    );
-    /* Input type file jQuery end*/
-  };
-
   /* Header Fixed ============ */
   var headerFix = function () {
     "use strict";
@@ -336,51 +218,6 @@ var Samar = (function () {
       }
     });
     /* Main navigation fixed on top  when scroll down function custom end */
-  };
-
-  /* Counter Number ============ */
-  var counter = function () {
-    if (jQuery(".counter").length) {
-      jQuery(".counter").counterUp({
-        delay: 10,
-        time: 3000,
-      });
-    }
-  };
-
-  /* Video Popup ============ */
-  var handleVideo = function () {
-    /* Video responsive function */
-    jQuery('iframe[src*="youtube.com"]').wrap(
-      '<div class="embed-responsive embed-responsive-16by9"></div>'
-    );
-    jQuery('iframe[src*="vimeo.com"]').wrap(
-      '<div class="embed-responsive embed-responsive-16by9"></div>'
-    );
-    /* Video responsive function end */
-  };
-
-  /* Gallery Filter ============ */
-  var handleFilterMasonary = function () {
-    /* gallery filter activation = jquery.mixitup.min.js */
-    if (jQuery("#image-gallery-mix").length) {
-      jQuery(".gallery-filter")
-        .find("li")
-        .each(function () {
-          $(this).addClass("filter");
-        });
-      jQuery("#image-gallery-mix").mixItUp();
-    }
-    if (jQuery(".gallery-filter.masonary").length) {
-      jQuery(".gallery-filter.masonary").on("click", "span", function () {
-        var selector = $(this).parent().attr("data-filter");
-        jQuery(".gallery-filter.masonary span").parent().removeClass("active");
-        jQuery(this).parent().addClass("active");
-        jQuery("#image-gallery-isotope").isotope({ filter: selector });
-        return false;
-      });
-    }
-    /* gallery filter activation = jquery.mixitup.min.js */
   };
 
   /* handle Bootstrap Select ============ */
@@ -471,31 +308,6 @@ var Samar = (function () {
     });
   };
 
-  /* Website Launch Date */
-  var WebsiteLaunchDate = new Date();
-  monthNames = [
-    "January",
-    "February",
-    "March",
-    "April",
-    "May",
-    "June",
-    "July",
-    "August",
-    "September",
-    "October",
-    "November",
-    "December",
-  ];
-  WebsiteLaunchDate.setMonth(WebsiteLaunchDate.getMonth() + 1);
-  WebsiteLaunchDate =
-    WebsiteLaunchDate.getDate() +
-    " " +
-    monthNames[WebsiteLaunchDate.getMonth()] +
-    " " +
-    WebsiteLaunchDate.getFullYear();
-  /* Website Launch Date END */
-
   /* Header Height ============ */
   var setResizeMargin = function () {
     if ($(".setResizeMargin").length > 0 && screenWidth >= 1280) {
@@ -541,41 +353,6 @@ var Samar = (function () {
     });
   };
 
-  var customFileUpload = function () {
-    $(".custom-file-input").on("change", function () {
-      var fileName = $(this).val().split("\\").pop();
-      $(this)
-        .siblings(".custom-file-label")
-        .addClass("selected")
-        .html(fileName);
-    });
-  };
-
-  /* Range ============ */
-  var priceslider = function () {
-    if ($(".price-slide, .price-slide-2").length > 0) {
-      $("#slider-range,#slider-range-2").slider({
-        range: true,
-        min: 300,
-        max: 4000,
-        values: [0, 5000],
-        slide: function (event, ui) {
-          var min = ui.values[0],
-            max = ui.values[1];
-          $("#" + this.id)
-            .prev()
-            .val("$" + min + " - $" + max);
-        },
-      });
-    }
-  };
-
-  var handleSupport = function () {
-    var support =
-      '<a href="https://1.envato.market/VLMVO" target="_blank" class="bt-buy-now theme-btn"><i class="ti-shopping-cart"></i><span>Buy Now</span></a><a href="https://w3itexperts.ticksy.com" target="_blank" class="bt-support-now theme-btn"><i class="ti-headphone-alt"></i><span>Support</span></a><!-- Go to www.addthis.com/dashboard to customize your tools --><script type="text/javascript" src="../../s7.addthis.com/js/300/addthis_widget.js#pubid=ra-5b221c5e31b4e54b"></script>';
-    jQuery("body").append(support);
-  };
-
   /* Function ============ */
   return {
     init: function () {
@@ -583,33 +360,21 @@ var Samar = (function () {
       wow_animation();
       onePageLayout();
       dzTheme();
-      homeSearch();
       handleResizeElement();
       handlePlaceholderAnimation();
-      MagnificPopup();
-      handleAccordian();
       scrollTop();
       footerAlign();
-      fileInput();
       headerFix();
-      handleVideo();
-      handleFilterMasonary();
-      handleCountDown(WebsiteLaunchDate);
       handleBannerResize();
       setResizeMargin();
       handelResize();
       lightGallery();
       jQuery(".modal").on("show.bs.modal", reposition);
-      customFileUpload();
-      priceslider();
-      handleSupport();
     },
 
     load: function () {
       handleBootstrapSelect();
       equalHeight(".equal-wraper .equal-col");
-      counter();
-      masonryBox();
       handleBootstrapTouchSpin();
     },
 
@@ -626,38 +391,23 @@ var Samar = (function () {
 /* Document.ready Start */
 jQuery(document).ready(function () {
   "use strict";
-  Samar.init();
+  Script.init();
 
   jQuery(".navicon").on("click", function () {
     $(this).toggleClass("open");
   });
-
-  /* jQuery('#faqSpecifications .card-header a').on('mouseover',function(){
-		$('.faq-media img').removeClass('active');
-		var imageDivId = $(this).attr('data-image-bx');
-		$('#'+imageDivId).addClass('active');
-	});  */
-
-  /* jQuery('.gallery-category .items').on('mouseover',function(){
-		$('.gallery-img img').removeClass('active');
-		var imageDivId = $(this).attr('data-image-bx');
-		$('#'+imageDivId).addClass('active');
-	});  */
 });
-/* Document.ready END */
 
-/* Window Load START */
 jQuery(window).on("load", function () {
   "use strict";
-  Samar.load();
+  Script.load();
   setTimeout(function () {
     jQuery("#loading-area").remove();
   }, 0);
 });
-/*  Window Load END */
-/* Window Resize START */
+
 jQuery(window).on("resize", function () {
   "use strict";
-  Samar.resize();
+  Script.resize();
 });
 /*  Window Resize END */
