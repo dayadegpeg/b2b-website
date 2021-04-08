@@ -26,7 +26,10 @@
           </button>
           <div class="extra-nav">
             <div class="extra-cell">
-              <a href="#" class="btn btn-link d-inline-flex align-items-center"
+              <a
+                href="https://app.degpeg.com/signup"
+                target="_blank"
+                class="btn btn-link d-inline-flex align-items-center"
                 ><i class="fa fa-angle-right m-r10"></i>Login</a
               >
             </div>
@@ -896,14 +899,12 @@
               We Love To Help Great Companies To Enlarge Their Revenues.
             </h2>
           </div>
-          <form class="dlab-form dzForm">
-            <div class="dzFormMsg"></div>
-            <input
-              type="hidden"
-              class="form-control"
-              name="dzToDo"
-              value="Contact"
-            />
+          <form
+            name="leadFormGroup"
+            [formGroup]="leadFormGroup"
+            class="dlab-form"
+            novalidate
+          >
             <div class="row">
               <div class="col-sm-6">
                 <div class="input-group">
@@ -913,8 +914,9 @@
                     ></span>
                   </div>
                   <input
-                    name="dzName"
+                    name="name"
                     type="text"
+                    formControlName="firstName"
                     required
                     class="form-control"
                     placeholder="First Name"
@@ -929,8 +931,9 @@
                     ></span>
                   </div>
                   <input
-                    name="dzOther[last_name]"
+                    name="lastname"
                     type="text"
+                    formControlName="lastName"
                     class="form-control"
                     required
                     placeholder="Last Name"
@@ -945,8 +948,9 @@
                     ></span>
                   </div>
                   <input
-                    name="dzEmail"
+                    name="email"
                     type="text"
+                    formControlName="email"
                     required
                     class="form-control"
                     placeholder="Email Address"
@@ -961,8 +965,9 @@
                     ></span>
                   </div>
                   <input
-                    name="dzOther[phone]"
+                    name="phone"
                     type="text"
+                    formControlName="phone"
                     required
                     class="form-control"
                     placeholder="Phone No."
@@ -977,8 +982,9 @@
                     ></span>
                   </div>
                   <textarea
-                    name="dzMessage"
+                    name="message"
                     required
+                    formControlName="message"
                     class="form-control"
                     placeholder="Message"
                   ></textarea>
@@ -1112,7 +1118,7 @@
               <h5 class="footer-title">Our links</h5>
               <ul>
                 <li><a href="javascript:void(0);">Main Website</a></li>
-                <li><a href="javascript:void(0);">Login</a></li>
+                <li><a href="https://app.degpeg.com/signup">Login</a></li>
                 <!-- <li><a href="javascript:void(0);">About Us</a></li>
                 <li><a href="javascript:void(0);">Services</a></li>
                 <li><a href="javascript:void(0);">Team</a></li>
@@ -1163,19 +1169,39 @@
             <div class="dlab-social-icon">
               <ul>
                 <li>
-                  <a class="fa fa-facebook" href="javascript:void(0);"></a>
+                  <a
+                    class="fa fa-facebook"
+                    href="https://www.facebook.com/degpeg/"
+                    target="_blank"
+                  ></a>
                 </li>
                 <li>
-                  <a class="fa fa-instagram" href="javascript:void(0);"></a>
+                  <a
+                    class="fa fa-instagram"
+                    href="https://www.instagram.com/degpeg_/"
+                    target="_blank"
+                  ></a>
                 </li>
                 <li>
-                  <a class="fa fa-twitter" href="javascript:void(0);"></a>
+                  <a
+                    class="fa fa-twitter"
+                    href="https://twitter.com/degpeg_"
+                    target="_blank"
+                  ></a>
                 </li>
                 <li>
-                  <a class="fa fa-linkedin" href="javascript:void(0);"></a>
+                  <a
+                    class="fa fa-linkedin"
+                    href="https://www.linkedin.com/company/degpeg/?originalSubdomain=sg"
+                    target="_blank"
+                  ></a>
                 </li>
                 <li>
-                  <a class="fa fa-youtube-play" href="javascript:void(0);"></a>
+                  <a
+                    class="fa fa-youtube-play"
+                    href="https://www.youtube.com/channel/UCYvwv2olkqz0ob3yngXxu_A"
+                    target="_blank"
+                  ></a>
                 </li>
               </ul>
             </div>
