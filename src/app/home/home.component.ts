@@ -13,7 +13,7 @@ import {
   styleUrls: ['./home.component.scss'],
 })
 export class HomeComponent implements OnInit {
-  leadFormGroup: FormGroup;
+  leadFormGroup: FormGroup | undefined;
 
   constructor(
     private homeService: HomeService,
@@ -21,18 +21,18 @@ export class HomeComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    this.leadFormGroup = this._formBuilder.group({
-      firstName: [''],
-      lastName: [''],
-      phone: [''],
-      email: ['', [Validators.required, Validators.email]],
-      message: [''],
-    });
+    // this.leadFormGroup = this._formBuilder.group({
+    //   firstName: [''],
+    //   lastName: [''],
+    //   phone: [''],
+    //   email: ['', [Validators.required, Validators.email]],
+    //   message: [''],
+    // });
   }
 
-  submitFormData(formData: any) {
-    this.homeService.sendLeadMail(formData).subscribe((arg) => {
-      console.log('Success');
-    });
-  }
+  // submitFormData(formData: any) {
+  //   this.homeService.sendLeadMail(formData).subscribe((arg) => {
+  //     console.log('Success');
+  //   });
+  // }
 }

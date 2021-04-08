@@ -8,6 +8,8 @@ import { HomeComponent } from './home/home.component';
 import { CareerComponent } from './career/career.component';
 import { PricingComponent } from './pricing/pricing.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { PrivacyComponent } from './privacy/privacy.component';
+import { ThankYouComponent } from './thank-you/thank-you.component';
 
 @NgModule({
   declarations: [
@@ -16,6 +18,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     HomeComponent,
     CareerComponent,
     PricingComponent,
+    PrivacyComponent,
+    ThankYouComponent,
   ],
   imports: [BrowserModule, AppRoutingModule, FormsModule, ReactiveFormsModule],
   providers: [],

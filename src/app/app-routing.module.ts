@@ -4,6 +4,8 @@ import { AboutUsComponent } from './about-us/about-us.component';
 import { HomeComponent } from './home/home.component';
 import { CareerComponent } from './career/career.component';
 import { PricingComponent } from './pricing/pricing.component';
+import { PrivacyComponent } from './privacy/privacy.component';
+import { ThankYouComponent } from './thank-you/thank-you.component';
 
 const routes: Routes = [
   {
@@ -21,6 +23,14 @@ const routes: Routes = [
   {
     path: 'pricing',
     component: PricingComponent,
+  },
+  {
+    path: 'privacy',
+    component: PrivacyComponent,
+  },
+  {
+    path: 'thank',
+    component: ThankYouComponent,
   },
 ];
 
